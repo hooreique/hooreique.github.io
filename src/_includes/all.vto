@@ -36,7 +36,16 @@
 <ul>
   {{ for result of results }}
   <li>
-    <a href="{{ result.url }}">{{ result.title }}</a>
+    <div>
+      <a href="{{ result.url }}">{{ result.title }}</a>
+    </div>
+
+    <div>
+      <pre><code
+        class="language-{{ result.custom.primaryCode.language }}"
+        label="{{ result.custom.primaryCode.label }}"
+      >{{ result.custom.primaryCode.content }}</code></pre>
+    </div>
   </li>
   {{ /for }}
 </ul>
