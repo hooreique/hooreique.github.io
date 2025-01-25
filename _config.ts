@@ -7,7 +7,7 @@ import shikiAttr from "lume_shiki/plugins/attribute/mod.ts";
 export default lume({
   src: "./src",
   location: new URL("https://gist.hooreique.com"),
-})
+}, { vento: { options: { autoescape: true } } })
   .use(favicon())
   .use(shiki({
     highlighter: {
@@ -21,4 +21,9 @@ export default lume({
   .use(shikiCopy())
   .use(shikiAttr())
   .copy("index.html")
-  .copy("all.html", "all/index.html");
+  .copy("all.html", "all/index.html")
+  .data(
+    "wrapBsc",
+    (bsc: string): string =>
+      `navigator.clipboard.writeText(\`${bsc}\`.trim()+'\\n').catch(()=>{})`,
+  );

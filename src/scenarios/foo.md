@@ -2,18 +2,18 @@
 layout: scenario.vto
 title: foo code
 date: 2024-12-01T22:00:00+0900
-custom:
-  primaryCode:
-    label: foo.lua
-    language: lua
-    content: |
-      local foo = 'foo'
-      return { foo = foo }
+bsc: |
+  local bar = "bar"
+  return { bar = bar }
 ---
 
 # foo
 
 foo.lua 를 작성해봅시다.
+<button>버튼</button>
+<strong>strong</strong>
+<i>italic</i>
+<b>bold</b>
 
 ```lua{label=bar.lua}
 local bar = 'bar'

@@ -1,5 +1,5 @@
 {{ layout "base.vto" { title: title } }}
 <main>
-  <article>{{ content }}</article>
+  <article>{{ content |> safe }}</article>
 </main>
 {{ /layout }}

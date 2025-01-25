@@ -2,13 +2,9 @@
 layout: scenario.vto
 title: ofof code
 date: 2024-11-01T22:00:00+0900
-custom:
-  primaryCode:
-    label: ofof.ts
-    language: typescript
-    content: |
-      const hello: string = 'hello world';
-      export default { hello };
+bsc:
+  onclick:
+    invalid: true
 ---
 
 # ofof

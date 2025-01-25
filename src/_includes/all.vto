@@ -36,16 +36,18 @@
 <ul>
   {{ for result of results }}
   <li>
-    <div>
-      <a href="{{ result.url }}">{{ result.title }}</a>
-    </div>
+    <h3>
+      {{ if typeof result.bsc === 'string' }}
+      <button
+        type="button"
+        onclick="{{ wrapBsc(result.bsc) }}"
+      >Get Gist</button>
+      {{ /if }}
 
-    <div>
-      <pre><code
-        class="language-{{ result.custom.primaryCode.language }}"
-        label="{{ result.custom.primaryCode.label }}"
-      >{{ result.custom.primaryCode.content }}</code></pre>
-    </div>
+      <a href="{{ result.url }}">{{ result.title }}</a>
+    </h3>
+
+    <p>{{ result.content.substring(0, 500) }}</p>
   </li>
   {{ /for }}
 </ul>
