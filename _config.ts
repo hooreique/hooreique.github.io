@@ -1,6 +1,5 @@
 import lume from "lume/mod.ts";
 import favicon from "lume/plugins/favicon.ts";
-import redir from "lume/plugins/redirects.ts";
 import shiki from "lume_shiki/mod.ts";
 import shikiCopy from "lume_shiki/plugins/copy/mod.ts";
 import shikiAttr from "lume_shiki/plugins/attribute/mod.ts";
@@ -10,7 +9,6 @@ export default lume({
   location: new URL("https://gist.hooreique.com"),
 })
   .use(favicon())
-  .use(redir())
   .use(shiki({
     highlighter: {
       langs: ["lua", "javascript", "typescript"],
@@ -21,4 +19,6 @@ export default lume({
     useColorScheme: true,
   }))
   .use(shikiCopy())
-  .use(shikiAttr());
+  .use(shikiAttr())
+  .copy("index.html")
+  .copy("all.html", "all/index.html");

@@ -1,7 +1,3 @@
-export const url = "/all/1";
-
-export const oldUrl = ["/", "/all/"];
-
 export const layout = "all.vto";
 
 export default function* ({ search, paginate }: Lume.Data) {
