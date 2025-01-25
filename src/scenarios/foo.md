@@ -1,5 +1,5 @@
 ---
-layout: code.vto
+layout: scenario.vto
 title: foo code
 date: 2024-12-01T22:00:00+0900
 custom:
