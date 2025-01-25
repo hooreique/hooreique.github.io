@@ -1,0 +1,43 @@
+{{ layout "base.vto" { title: "Gist hooreique" } }}
+<h2>Home</h2>
+
+<p>
+  개인용 Gist 리포지토리입니다.
+  Source: <a href="https://www.github.com/hooreique/hooreique.github.io">
+    github.com/hooreique/hooreique.github.io
+  </a>
+</p>
+
+<aside>
+  <div>
+    Total {{ pagination.totalResults }} items
+    ({{ pagination.totalPages }} pages)
+  </div>
+
+  {{ if pagination.previous || pagination.next }}
+  <div>
+    {{ if pagination.previous }}
+    <a href="{{ pagination.previous }}">Prev</a>
+    {{ else }}
+    <span>Prev</span>
+    {{ /if }}
+
+    <a href="{{ url }}">{{ pagination.page }}</a>
+
+    {{ if pagination.next }}
+    <a href="{{ pagination.next }}">Next</a>
+    {{ else }}
+    <span>Next</span>
+    {{ /if }}
+  </div>
+  {{ /if }}
+</aside>
+
+<ul>
+  {{ for result of results }}
+  <li>
+    <a href="{{ result.url }}">{{ result.title }}</a>
+  </li>
+  {{ /for }}
+</ul>
+{{ /layout }}
