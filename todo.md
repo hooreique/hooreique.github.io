@@ -1,1 +1,4 @@
 - [ ] compiler option 비우기
+- [ ] meta 태그 넣기
+  - [ ] _data 에 적절한 데이터 채우기
+    - [ ] 포맷으로 toml 쓰기
