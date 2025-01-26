@@ -8,30 +8,54 @@
   </a>
 </p>
 
-<aside>
-  <div>
-    Total {{ pagination.totalResults }} items
-    ({{ pagination.totalPages }} pages)
-  </div>
 
-  {{ if pagination.previous || pagination.next }}
-  <div>
-    {{ if pagination.previous }}
-    <a href="{{ pagination.previous }}">Prev</a>
-    {{ else }}
-    <span>Prev</span>
-    {{ /if }}
+<div style="margin-top:4rem;text-align:right">
+  Total {{ pagination.totalResults }} scenarios
+</div>
 
-    <a href="{{ url }}">{{ pagination.page }}</a>
-
-    {{ if pagination.next }}
-    <a href="{{ pagination.next }}">Next</a>
-    {{ else }}
-    <span>Next</span>
-    {{ /if }}
-  </div>
+{{ if pagination.previous || pagination.next }}
+<div style="margin-top:4rem;text-align:center">
+  {{ if pagination.page === 1 }}
+  <span>[1]</span>
+  {{ else }}
+  <a href="1">[1]</a>
   {{ /if }}
-</aside>
+
+  ――
+
+  {{ if pagination.previous }}
+  <a href="{{ pagination.previous }}">[Prev]</a>
+  {{ else }}
+  <span>[Prev]</span>
+  {{ /if }}
+
+  ――
+
+  <form class="page" style="display:inline-block">
+    <input
+      type="number" name="page"
+      value="{{ pagination.page }}"
+      style="max-width:2.5rem;text-align:center"
+    />
+  </form>
+
+  ――
+
+  {{ if pagination.next }}
+  <a href="{{ pagination.next }}">[Next]</a>
+  {{ else }}
+  <span>[Next]</span>
+  {{ /if }}
+
+  ――
+
+  {{ if pagination.page === pagination.totalPages }}
+  <span>[{{ pagination.totalPages }}]</span>
+  {{ else }}
+  <a href="{{ pagination.totalPages }}">[{{ pagination.totalPages }}]</a>
+  {{ /if }}
+</div>
+{{ /if }}
 
 <ul>
   {{ for result of results }}
@@ -41,14 +65,89 @@
       <button
         type="button"
         onclick="{{ wrapBsc(result.bsc) }}"
-      >Get Gist</button>
+        title="Copy the gist part to the clipboard"
+      >📋 Gist</button>
       {{ /if }}
 
       <a href="{{ result.url }}">{{ result.title }}</a>
     </h3>
 
-    <p>{{ result.content.substring(0, 500) }}</p>
+    <p>
+      {{- if result.content.length > 500 -}}
+        {{- result.content.substring(0, 499) -}}
+
+        <span style="color:#a0a0a0">…</span>
+      {{- else -}}
+        {{- result.content -}}
+      {{- /if -}}
+    </p>
   </li>
   {{ /for }}
 </ul>
+
+{{ if pagination.previous || pagination.next }}
+<div style="margin-top:4rem;text-align:center">
+  {{ if pagination.page === 1 }}
+  <span>[1]</span>
+  {{ else }}
+  <a href="1">[1]</a>
+  {{ /if }}
+
+  ――
+
+  {{ if pagination.previous }}
+  <a href="{{ pagination.previous }}">[Prev]</a>
+  {{ else }}
+  <span>[Prev]</span>
+  {{ /if }}
+
+  ――
+
+  <form class="page" style="display:inline-block">
+    <input
+      type="number" name="page"
+      value="{{ pagination.page }}"
+      style="max-width:2.5rem;text-align:center"
+    />
+  </form>
+
+  ――
+
+  {{ if pagination.next }}
+  <a href="{{ pagination.next }}">[Next]</a>
+  {{ else }}
+  <span>[Next]</span>
+  {{ /if }}
+
+  ――
+
+  {{ if pagination.page === pagination.totalPages }}
+  <span>[{{ pagination.totalPages }}]</span>
+  {{ else }}
+  <a href="{{ pagination.totalPages }}">[{{ pagination.totalPages }}]</a>
+  {{ /if }}
+</div>
+{{ /if }}
+
+<script defer>
+  addEventListener('load', () => {
+    for (const formEl of document.querySelectorAll('.pageiresnt')) {
+      const inputEl = formEl.querySelector('input');
+
+      formEl.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const p = Number.parseInt(inputEl.value);
+
+        if (p >= 1) {
+          location.assign(`${p}`);
+        }
+      })
+
+      formEl.addEventListener('click', () => {
+        inputEl.focus();
+      })
+    }
+  });
+</script>
 {{ /layout }}

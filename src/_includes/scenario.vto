@@ -1,5 +1,19 @@
 {{ layout "base.vto" { title: title } }}
-<main>
+<section>
+  <div style="display:flex;justify-content:space-between">
+    <button
+      type="button"
+      onclick="history.back()"
+      title="Go back"
+    >&lt;-</button>
+
+    <button
+      type="button"
+      onclick="{{ wrapUrl(url) }}"
+      title="Copy the URL to the clipboard"
+    >🔗 URL</button>
+  </div>
+
   <article>{{ content |> safe }}</article>
-</main>
+</section>
 {{ /layout }}

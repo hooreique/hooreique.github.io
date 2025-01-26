@@ -26,4 +26,9 @@ export default lume({
     "wrapBsc",
     (bsc: string): string =>
       `navigator.clipboard.writeText(\`${bsc}\`.trim()+'\\n').catch(()=>{})`,
+  )
+  .data(
+    "wrapUrl",
+    (path: string): string =>
+      `navigator.clipboard.writeText('https://gist.hooreique.com${path}').catch(()=>{})`,
   );
