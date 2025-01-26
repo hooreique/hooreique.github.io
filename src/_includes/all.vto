@@ -13,12 +13,11 @@
   Total {{ pagination.totalResults }} scenarios
 </div>
 
-{{ if pagination.previous || pagination.next }}
 <div style="margin-top:4rem;text-align:center">
   {{ if pagination.page === 1 }}
   <span>[1]</span>
   {{ else }}
-  <a href="1">[1]</a>
+  <a href="../1/">[1]</a>
   {{ /if }}
 
   ――
@@ -35,7 +34,8 @@
     <input
       type="number" name="page"
       value="{{ pagination.page }}"
-      style="max-width:2.5rem;text-align:center"
+      min="1"
+      max="{{ pagination.totalPages }}"
     />
   </form>
 
@@ -52,10 +52,9 @@
   {{ if pagination.page === pagination.totalPages }}
   <span>[{{ pagination.totalPages }}]</span>
   {{ else }}
-  <a href="{{ pagination.totalPages }}">[{{ pagination.totalPages }}]</a>
+  <a href="../{{ pagination.totalPages }}/">[{{ pagination.totalPages }}]</a>
   {{ /if }}
 </div>
-{{ /if }}
 
 <ul>
   {{ for result of results }}
@@ -86,12 +85,11 @@
   {{ /for }}
 </ul>
 
-{{ if pagination.previous || pagination.next }}
 <div style="margin-top:4rem;text-align:center">
   {{ if pagination.page === 1 }}
   <span>[1]</span>
   {{ else }}
-  <a href="1">[1]</a>
+  <a href="../1/">[1]</a>
   {{ /if }}
 
   ――
@@ -108,7 +106,8 @@
     <input
       type="number" name="page"
       value="{{ pagination.page }}"
-      style="max-width:2.5rem;text-align:center"
+      min="1"
+      max="{{ pagination.totalPages }}"
     />
   </form>
 
@@ -125,14 +124,13 @@
   {{ if pagination.page === pagination.totalPages }}
   <span>[{{ pagination.totalPages }}]</span>
   {{ else }}
-  <a href="{{ pagination.totalPages }}">[{{ pagination.totalPages }}]</a>
+  <a href="../{{ pagination.totalPages }}/">[{{ pagination.totalPages }}]</a>
   {{ /if }}
 </div>
-{{ /if }}
 
-<script defer>
+<script async>
   addEventListener('load', () => {
-    for (const formEl of document.querySelectorAll('.pageiresnt')) {
+    for (const formEl of document.querySelectorAll('.page')) {
       const inputEl = formEl.querySelector('input');
 
       formEl.addEventListener('submit', function(event) {
@@ -141,7 +139,7 @@
         const p = Number.parseInt(inputEl.value);
 
         if (p >= 1) {
-          location.assign(`${p}`);
+          location.assign(new URL(`../${p}/`, location));
         }
       })
 
