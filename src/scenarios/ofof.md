@@ -3,8 +3,7 @@ layout: scenario.vto
 title: ofof code
 date: 2024-11-01T22:00:00+0900
 bsc:
-  onclick:
-    invalid: true
+  invalid: true
 ---
 
 # ofof

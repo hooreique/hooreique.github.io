@@ -16,6 +16,8 @@ foo.lua 를 작성해봅시다.
 <b>bold</b>
 
 ```lua{label=bar.lua}
+local long_word = 'oaienstai erntiaore nstoairse nairesn itaersn otiarsn toiarsent oiarenst oairestn aoirenstoiearnosite narosiet narsoi'
+
 local bar = 'bar'
 return { bar = bar }
 ```

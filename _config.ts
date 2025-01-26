@@ -1,6 +1,7 @@
 import lume from "lume/mod.ts";
 import favicon from "lume/plugins/favicon.ts";
 import shiki from "lume_shiki/mod.ts";
+import { bundledLanguages } from "lume_shiki/deps.ts";
 import shikiCopy from "lume_shiki/plugins/copy/mod.ts";
 import shikiAttr from "lume_shiki/plugins/attribute/mod.ts";
 
@@ -11,14 +12,14 @@ export default lume({
   .use(favicon())
   .use(shiki({
     highlighter: {
-      langs: ["lua", "javascript", "typescript"],
-      themes: ["github-dark", "github-light"],
+      langs: Object.keys(bundledLanguages),
+      themes: ["one-dark-pro", "one-light"],
     },
-    themes: { dark: "github-dark", light: "github-light" },
+    themes: { dark: "one-dark-pro", light: "one-light" },
     defaultColor: "dark",
     useColorScheme: true,
   }))
-  .use(shikiCopy())
+  .use(shikiCopy({ content: () => "📋" }))
   .use(shikiAttr())
   .copy("index.html")
   .copy("all.html", "all/index.html")
