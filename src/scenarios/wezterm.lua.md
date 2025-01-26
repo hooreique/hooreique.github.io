@@ -31,7 +31,7 @@ bsc: |
   return config
 ---
 
-```lua{label=~/.config/wezterm/wezterm.lua}
+```lua{label=%USERPROFILE%\.config\wezterm\wezterm.lua}
 local wezterm = require 'wezterm'
 
 local config = {}

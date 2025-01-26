@@ -1,6 +1,6 @@
 ---
 layout: scenario.vto
-title: Lemonade
+title: Lemonade Config
 date: 2025-01-22T13:00:00+0900
 bsc: |
   # ~/.config/lemonade.toml
