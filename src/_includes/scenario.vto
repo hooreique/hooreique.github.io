@@ -1,5 +1,5 @@
 {{ layout "base.vto" { title: title } }}
-<section>
+<section style="margin-bottom:2rem">
   <div style="
     display: flex;
     justify-content: space-between;
@@ -23,8 +23,10 @@
   <article>{{ content |> safe }}</article>
 </section>
 
-<section class="giscus">
-</section>
+<section
+  style="margin-bottom:2rem"
+  class="giscus"
+></section>
 
 <script
   src="https://giscus.app/client.js"
