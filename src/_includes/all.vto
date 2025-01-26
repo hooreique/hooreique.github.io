@@ -130,22 +130,18 @@
 
 <script async>
   addEventListener('load', () => {
-    for (const formEl of document.querySelectorAll('.page')) {
+    for (const formEl of document.querySelectorAll('form.page')) {
       const inputEl = formEl.querySelector('input');
 
-      formEl.addEventListener('submit', function(event) {
+      if (!inputEl) continue;
+
+      formEl.onsubmit = event => {
         event.preventDefault();
-
         const p = Number.parseInt(inputEl.value);
+        if (p >= 1) location.assign(`../${p}/`);
+      };
 
-        if (p >= 1) {
-          location.assign(new URL(`../${p}/`, location));
-        }
-      })
-
-      formEl.addEventListener('click', () => {
-        inputEl.focus();
-      })
+      formEl.onclick = () => inputEl.focus();
     }
   });
 </script>
