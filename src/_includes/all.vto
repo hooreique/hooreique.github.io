@@ -73,8 +73,8 @@
     </h3>
 
     <p>
-      {{- if result.content.length > 500 -}}
-        {{- result.content.substring(0, 499) -}}
+      {{- if result.content.length > 128 -}}
+        {{- result.content.substring(0, 127) -}}
 
         <span style="color:#a0a0a0">…</span>
       {{- else -}}

@@ -11,7 +11,7 @@
   <style>
   :root{
     font-family: monospace;
-    font-size: 14pt;
+    font-size: 12pt;
   }
 
   input {
@@ -46,6 +46,7 @@
   <style>
   div.code-block {
     position: relative;
+    margin-bottom: 1rem;
   }
 
   div.code-block > header {
@@ -76,19 +77,19 @@
 </head>
 
 <body>
-  <header style="max-width:960px;margin:8rem auto 0 auto">
+  <header style="max-width:800px;margin:8rem auto 0 auto">
     <h1 style="text-align:center">
-      <a href="/" style="color:unset;text-decoration:none">
-        Gist hooreique
+      <a href="{{ url }}" style="color:unset;text-decoration:none">
+        {{- title -}}
       </a>
     </h1>
   </header>
 
-  <main style="max-width:960px;margin:6rem auto 0 auto">
+  <main style="max-width:800px;margin:6rem auto 0 auto">
     {{ content |> safe }}
   </main>
 
-  <footer style="max-width:960px;margin:12rem auto">
+  <footer style="max-width:800px;margin:12rem auto">
     <p style="text-align:center;color:#a0a0a0">
       &copy; 2025 hooreique. Free to use unless otherwise noted.
     </p>
