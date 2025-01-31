@@ -29,5 +29,5 @@ ClientAliveCountMax 3
 ### Client that can access the middle-man through LAN:
 
 ```bash
-TERM=xterm-256color ssh -p 2222 remote_user@192.168.0.111
+ssh -p 2222 remote_user@192.168.0.111
 ```
