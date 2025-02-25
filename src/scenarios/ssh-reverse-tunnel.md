@@ -8,6 +8,10 @@ bsc: |
 
 ### Remote host that listens on `localhost:22`:
 
+```bash
+nohup $(which sshd) -D -f /dev/null -o HostKey=~/.ssh/host_ed25519 -o Port=2211 -o PermitRootLogin=no -o PubkeyAuthentication=yes -o PasswordAuthentication=no -o KbdInteractiveAuthentication=no -o ClientAliveInterval=60 -o ClientAliveCountMax=3 > /dev/null 2>&1 & disown
+```
+
 ```plaintext{label=~/.ssh/config}
 Host *
   ServerAliveInterval 60
@@ -15,7 +19,7 @@ Host *
 ```
 
 ```bash
-ssh -fN -R 2222:localhost:22 -p 2345 middle_user@example.com
+ssh -fN -R 2222:localhost:2211 -p 2345 middle_user@example.com
 ```
 
 ### Middle-man that listens on `example.com:2345`:
