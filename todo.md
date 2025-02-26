@@ -1,3 +1,4 @@
+- [ ] page nav 에 id 넣고 이동시 포커스시키기
 - [ ] compiler option 비우기
 - [ ] meta 태그 넣기
   - [ ] _data 에 적절한 데이터 채우기
