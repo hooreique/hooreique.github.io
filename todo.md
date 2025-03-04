@@ -1,3 +1,4 @@
+- [ ] 코드블록에 gist 속성 넣고 자동으로 타게팅하기
 - [ ] page nav 에 id 넣고 이동시 포커스시키기
 - [ ] compiler option 비우기
 - [ ] meta 태그 넣기
