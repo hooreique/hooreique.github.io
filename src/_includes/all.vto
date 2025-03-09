@@ -13,17 +13,17 @@
   Total {{ pagination.totalResults }} scenarios
 </div>
 
-<div style="margin-top:4rem;text-align:center">
+<div style="margin-top:4rem;text-align:center" id="page-nav-top">
   {{ if pagination.page === 1 }}
   <span>[1]</span>
   {{ else }}
-  <a href="../1/">[1]</a>
+  <a href="../1/#page-nav-top">[1]</a>
   {{ /if }}
 
   ――
 
   {{ if pagination.previous }}
-  <a href="{{ pagination.previous }}">[Prev]</a>
+  <a href="{{ pagination.previous }}#page-nav-top">[Prev]</a>
   {{ else }}
   <span>[Prev]</span>
   {{ /if }}
@@ -42,7 +42,7 @@
   ――
 
   {{ if pagination.next }}
-  <a href="{{ pagination.next }}">[Next]</a>
+  <a href="{{ pagination.next }}#page-nav-top">[Next]</a>
   {{ else }}
   <span>[Next]</span>
   {{ /if }}
@@ -52,7 +52,7 @@
   {{ if pagination.page === pagination.totalPages }}
   <span>[{{ pagination.totalPages }}]</span>
   {{ else }}
-  <a href="../{{ pagination.totalPages }}/">[{{ pagination.totalPages }}]</a>
+  <a href="../{{ pagination.totalPages }}/#page-nav-top">[{{ pagination.totalPages }}]</a>
   {{ /if }}
 </div>
 
@@ -90,13 +90,13 @@
   {{ if pagination.page === 1 }}
   <span>[1]</span>
   {{ else }}
-  <a href="../1/">[1]</a>
+  <a href="../1/#page-nav-top">[1]</a>
   {{ /if }}
 
   ――
 
   {{ if pagination.previous }}
-  <a href="{{ pagination.previous }}">[Prev]</a>
+  <a href="{{ pagination.previous }}#page-nav-top">[Prev]</a>
   {{ else }}
   <span>[Prev]</span>
   {{ /if }}
@@ -115,7 +115,7 @@
   ――
 
   {{ if pagination.next }}
-  <a href="{{ pagination.next }}">[Next]</a>
+  <a href="{{ pagination.next }}#page-nav-top">[Next]</a>
   {{ else }}
   <span>[Next]</span>
   {{ /if }}
@@ -125,7 +125,7 @@
   {{ if pagination.page === pagination.totalPages }}
   <span>[{{ pagination.totalPages }}]</span>
   {{ else }}
-  <a href="../{{ pagination.totalPages }}/">[{{ pagination.totalPages }}]</a>
+  <a href="../{{ pagination.totalPages }}/#page-nav-top">[{{ pagination.totalPages }}]</a>
   {{ /if }}
 </div>
 
@@ -139,7 +139,7 @@
       formEl.onsubmit = event => {
         event.preventDefault();
         const p = Number.parseInt(inputEl.value);
-        if (p >= 1) location.assign(`../${p}/`);
+        if (p >= 1) location.assign(`../${p}/#page-nav-top`);
       };
 
       formEl.onclick = () => inputEl.focus();
