@@ -84,7 +84,7 @@
 <body>
   <header style="max-width:800px;margin:8rem auto 0 auto">
     <h1 style="text-align:center">
-      <a href="{{ url }}" style="color:unset;text-decoration:none">
+      <a href="{{ isHomePage ? baseUrl : url }}" style="color:unset;text-decoration:none">
         {{- title -}}
       </a>
     </h1>
