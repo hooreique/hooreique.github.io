@@ -12,5 +12,6 @@
     "types": [
       "lume/types.ts"
     ]
-  }
+  },
+  "nodeModulesDir": "auto"
 }
