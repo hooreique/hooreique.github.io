@@ -14,9 +14,10 @@
 
     <button
       type="button"
-      onclick="{{ wrapUrl(url) }}"
-      title="Copy the URL to the clipboard"
+      onclick="navigator.clipboard.writeText(this.getAttribute('data-content'))"
+      title="Copy the URL of this page to the clipboard"
       style="font-size:1em"
+      data-content="{{ baseUrl }}{{ url }}"
     >🔗 URL</button>
   </div>
 

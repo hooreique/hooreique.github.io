@@ -5,9 +5,11 @@ import { bundledLanguages } from "lume_shiki/deps.ts";
 import shikiCopy from "lume_shiki/plugins/copy/mod.ts";
 import shikiAttr from "lume_shiki/plugins/attribute/mod.ts";
 
+const baseUrl = "https://gist.hooreique.com";
+
 export default lume({
   src: "./src",
-  location: new URL("https://gist.hooreique.com"),
+  location: new URL(baseUrl),
 }, { vento: { options: { autoescape: true } } })
   .use(favicon())
   .use(shiki({
@@ -23,13 +25,13 @@ export default lume({
   .use(shikiAttr())
   .copy("index.html")
   .copy("all.html", "all/index.html")
-  .data(
-    "wrapBsc",
-    (bsc: string): string =>
-      `navigator.clipboard.writeText(\`${bsc}\`.trim()+'\\n').catch(()=>{})`,
-  )
-  .data(
-    "wrapUrl",
-    (path: string): string =>
-      `navigator.clipboard.writeText('https://gist.hooreique.com${path}').catch(()=>{})`,
-  );
+  .preprocess([".md"], (pages) => {
+    for (const page of pages) {
+      const matched = (page.data.content as string)?.match(
+        /```\S+?{ *?(?:\S+? +?)*?gist(?: +?\S+?)*? *?}\n([\S\s]*?)\n```/m,
+      );
+
+      page.data.gist = matched ? matched[1] : undefined;
+    }
+  })
+  .data("baseUrl", Deno.env.has("DEV") ? "http://localhost:3000" : baseUrl);

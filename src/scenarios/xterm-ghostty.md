@@ -2,11 +2,9 @@
 layout: scenario.vto
 title: Ghostty Term Info
 date: 2025-02-05T09:10:00+0900
-bsc: |
-  infocmp -x xterm-ghostty | ssh user@host -- tic -x -
 ---
 
-```bash
+```bash{gist}
 infocmp -x xterm-ghostty | ssh user@host -- tic -x -
 ```
 

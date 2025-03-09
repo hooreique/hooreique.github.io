@@ -2,8 +2,6 @@
 layout: scenario.vto
 title: SSH Reverse Tunneling
 date: 2025-01-11T23:00:00+0900
-bsc: |
-  ssh -fN -R 2222:localhost:22 -p 2345 middle_user@example.com
 ---
 
 ### Remote host that listens on `localhost:22`:
@@ -18,7 +16,7 @@ Host *
   ServerAliveCountMax 3
 ```
 
-```bash
+```bash{gist}
 ssh -fN -R 2222:localhost:2211 -p 2345 middle_user@example.com
 ```
 

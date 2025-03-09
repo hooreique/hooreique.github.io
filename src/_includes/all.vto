@@ -60,12 +60,13 @@
   {{ for result of results }}
   <li>
     <h3>
-      {{ if typeof result.bsc === 'string' }}
+      {{ if typeof result.gist === 'string' }}
       <button
         type="button"
-        onclick="{{ wrapBsc(result.bsc) }}"
+        onclick="navigator.clipboard.writeText(this.getAttribute('data-content'))"
         title="Copy the gist part of this scenario to the clipboard"
         style="font-size:0.6em"
+        data-content="{{ result.gist }}"
       >📋 Gist</button>
       {{ /if }}
 

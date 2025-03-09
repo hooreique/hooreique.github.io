@@ -13,7 +13,7 @@ bsc: |
   ClientAliveCountMax 3
 ---
 
-```plaintext{label=/etc/ssh/sshd_config.d/custom.conf}
+```plaintext{gist label=/etc/ssh/sshd_config.d/custom.conf}
 PermitRootLogin prohibit-password
 
 PubkeyAuthentication yes

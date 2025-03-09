@@ -2,18 +2,9 @@
 layout: scenario.vto
 title: Signing Commit
 date: 2024-12-14T15:21:34+0900
-bsc: |
-  [user]
-    name = Foo
-    email = bar@baz.com
-    signingKey = ~/.ssh/prikey
-  [gpg]
-    format = ssh
-  [commit]
-    gpgSign = true
 ---
 
-```ini{label=~/.gitconfig}
+```ini{gist label=~/.gitconfig}
 [user]
   name = Foo
   email = bar@baz.com
