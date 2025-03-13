@@ -2,12 +2,18 @@
 layout: scenario.vto
 title: Scenario Template
 date: 2021-01-01T01:01:01+0900
-bsc: |
-  echo hello
 ---
 
-## Title
+## 아무말
 
-```bash{label=.bashrc}
-echo hello
+아무말
+
+```bash{gist label=script.bash}
+echo This is the gist thing.
+```
+
+아무말
+
+```bash
+echo foo
 ```
