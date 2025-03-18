@@ -1,5 +1,5 @@
 {
-  description = "Personal Gist Page for hooreique";
+  description = "hooreique's personal gist site";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
