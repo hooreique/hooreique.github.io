@@ -5,7 +5,7 @@ import { bundledLanguages } from "lume_shiki/deps.ts";
 import shikiCopy from "lume_shiki/plugins/copy/mod.ts";
 import shikiAttr from "lume_shiki/plugins/attribute/mod.ts";
 
-const baseUrl = "https://gist.hooreique.com";
+const baseUrl = Deno.env.get("BASE_URL") ?? "https://gist.hooreique.com";
 
 export default lume({
   src: "./src",
@@ -34,4 +34,4 @@ export default lume({
       page.data.gist = matched ? matched[1] : undefined;
     }
   })
-  .data("baseUrl", Deno.env.has("DEV") ? "http://localhost:3000" : baseUrl);
+  .data("baseUrl", baseUrl);
