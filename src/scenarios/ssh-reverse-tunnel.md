@@ -4,7 +4,7 @@ title: SSH Reverse Tunneling
 date: 2025-01-11T23:00:00+0900
 ---
 
-### Remote host that listens on `localhost:22`:
+### Remote host that listens on `localhost:2211`:
 
 ```bash
 nohup $(which sshd) -D -f /dev/null -o HostKey=~/.ssh/host_ed25519 -o Port=2211 -o PermitRootLogin=no -o PubkeyAuthentication=yes -o PasswordAuthentication=no -o KbdInteractiveAuthentication=no -o ClientAliveInterval=60 -o ClientAliveCountMax=3 > /dev/null 2>&1 & disown
