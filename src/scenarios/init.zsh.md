@@ -5,16 +5,18 @@ date: 2024-11-10T21:45:02+0900
 ---
 
 ```zsh{gist label=~/init.zsh}
-if [[ -d "$HOME/bin" ]]; then
-  export PATH="$PATH:$HOME/bin"
+if [[ -f            "/mnt/c/Program Files/Microsoft VS Code/bin/code" \
+  && ":$PATH:" != *":/mnt/c/Program Files/Microsoft VS Code/bin:"* ]]
+then
+  export       PATH="/mnt/c/Program Files/Microsoft VS Code/bin:$PATH"
 fi
 
-if [[ -f /mnt/c/Program\ Files/Microsoft\ VS\ Code/bin/code ]]; then
-  export PATH=$PATH:/mnt/c/Program\ Files/Microsoft\ VS\ Code/bin
+if [[ -d /mnt/c/bin4wsl && ":$PATH:" != *:/mnt/c/bin4wsl:* ]]; then
+  export PATH="/mnt/c/bin4wsl:$PATH"
 fi
 
-if [[ -d /mnt/c/bin4wsl ]]; then
-  export PATH=$PATH:/mnt/c/bin4wsl
+if [[ -d "$HOME/bin" && ":$PATH:" != *":$HOME/bin:"* ]]; then
+  export PATH="$HOME/bin:$PATH"
 fi
 
 if [[ -f /mnt/c/bin4wsl/win32yank.exe ]]; then
@@ -31,4 +33,6 @@ alias s2b="sed 's/\\//\\\\/g'"
 alias b2s="sed 's/\\\\/\\//g'"
 # Final New Line (for \n not \r\n)
 alias fnl="perl -0777 -pe 's/\\n*\$/\\n/'"
+
+alias lp="env --file=$HOME/.env lepo"
 ```
