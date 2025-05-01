@@ -34,5 +34,5 @@ alias b2s="sed 's/\\\\/\\//g'"
 # Final New Line (for \n not \r\n)
 alias fnl="perl -0777 -pe 's/\\n*\$/\\n/'"
 
-alias lp="env --file=$HOME/.env lepo"
+alias lepo="env --file=$HOME/.env lepo"
 ```
